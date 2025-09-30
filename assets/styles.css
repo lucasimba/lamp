@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+    padding: 0; 
+    margin: 0; 
+}
+
+body, .container, .plate, .lamp {
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
+
+body {
+    height: max-content;
+    background-color: #222;
+}
+
+.container {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    height: 100%;
+    width: 50%;
+}
+
+/* espelho / interruptor */
+.plate {
+    height: 100px;
+    width: 100px;
+    border: 3px solid black;
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+.switch {
+    height: 45px;
+    width: 30px;
+    cursor: pointer;
+    margin-bottom: 5px;
+    border: 2px solid black;
+    border-radius: 6px;
+    background: linear-gradient(180deg, #777 0%, #fff 32%);
+}
+
+.switch.on {
+    margin-top: 5px;
+    background: linear-gradient(0deg, #777 0%, #fff 32%);
+}
+
+.lamp {
+    flex-direction: column;
+    justify-content: start;
+    height: 100%;
+    width: 50%;    
+}
+
+.bulb-socket {
+    width: 140px;
+    background: black;
+    border-width: 80px 0 0 0;
+    border-style: solid;
+    border-color: black;
+    border-radius: 30px 30px 0 0;
+    margin: 0;
+}
+
+.bulb {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #555;
+}
+
+.bulb::before {
+    content: '';
+    height: 50px;
+    width: 100px;
+    position: absolute;
+    background-color: #555;
+    transform: translate(50%, -40%);
+    z-index: -1;
+}
+
+
+
+.bulb.on {
+    box-shadow: 0 0 100px white, 0 0 120px white, 0 0 140px white;
+    background: #fff;
+}
+
+.bulb.on::before {
+    box-shadow: 0 0 1px white;
+    background: #fff;
+}
+
+.support {
+    width: 200px;
+    height: 50px;
+    background: black;
+    border-width: 80px 0 0 0;
+    border-radius: 0 0 100px 100px;
+}
+
+.string {
+    width: 5px;
+    height: 300px;
+    background: black;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column-reverse;        
+    }
+
+    .plate {
+        margin-top: 50%;
+    }
+
+}
+
